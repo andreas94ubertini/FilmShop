@@ -1,0 +1,134 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="E_Commerce.Site1" %>
+
+<!DOCTYPE html>
+
+<html class="h-100">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/cardStyle.css" rel="stylesheet" />
+    <link href="Content/Site1.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+
+</head>
+
+<body class="text-bg-dark" id="topPage">
+    <form id="form1" runat="server">
+        <header class="d-flex align-items-center justify-content-center justify-content-md-between p-3 mb-4 position-fixed start-0 end-0 glass fs-6">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <div class="d-flex gap-1">
+                    <asp:TextBox ID="ToSearch" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:Button ID="ButtonSearch" runat="server" Text="Cerca" CssClass="btn ancora" OnClick="ButtonSearch_Click" />
+                </div>
+            </div>
+
+
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center align-items-center mb-md-0">
+                <li><a href="../Default.aspx" class="ancora nav-link px-3 link-light">HOME</a></li>
+                <li><a href="../Carrello.aspx" class="ancora nav-link link-light px-3">CARRELLO</a></li>
+                <li>
+                    <button class="btn ancora" id="adminBtn" runat="server" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Area Admin
+                    </button>
+                </li>
+            </ul>
+
+
+            <div class="col-md-4 text-end d-flex align-items-center justify-content-center">
+                <asp:Image ID="profileImg" runat="server" CssClass="rounded-circle" Height="32" />
+                <asp:Button ID="premiumButton" runat="server" CssClass="ancora p-2" Text="Abbonati!" OnClick="premium_Click" />
+                <asp:Button ID="loginButton" class=" ancora p-2" runat="server" Text="Login" OnClick="loginButton_Click" />
+                <asp:Button ID="signInButton" runat="server" Text="Sign In" CssClass="ancora p-2" OnClick="signInButton_Click" />
+            </div>
+        </header>
+
+        <div class="spacer"></div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="spacer"></div>
+
+        <div id="footer" class="glass">
+            <h3 class="text-align-start mx-5">CodeBuster</h3>
+            <div class="container">
+                <div class="row">
+
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-column mt-3">
+                            <p class="my-0">Help</p>
+                            <p class="my-0">Privacy</p>
+                            <p class="my-0">Terms</p>
+                            <p class="my-0">About</p>
+                        </div>
+                        <div class="d-flex flex-column mx-5 mt-3">
+                            <p class="my-0">Get notification when new movies are in!</p>
+                            <p class="my-0">Subscribe to our news letters!</p>
+                            <div class="d-flex flex-row">
+                                <asp:TextBox ID="NewsLetters" runat="server" placeholder="Insert email address"></asp:TextBox>
+                                <asp:Button ID="NewsLettersButton" runat="server" Text="Subscribe" />
+                            </div>
+                            <div class="d-flex flex-row">
+                                <asp:CheckBox ID="AgeCheckBox" runat="server" />
+                                <asp:Label ID="CheckBoxLabel" runat="server" Text="I confirm I am older than 16"></asp:Label>
+                            </div>
+                        </div>
+                        <div id="icons" class="mt-4">
+                            <div id="iconContainer">
+                                <a class="fs-1 text mx-2" href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                                <a class="fs-1 text mx-2" href="https://www.instagram.com/"><i class="fa-brands fa-instagram" style="background: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); -webkit-background-clip: text; color: transparent;"></i></a>
+                                <a class="fs-1 text mx-2" href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest" style="color: #c00c0c;"></i></a>
+                                <a class="fs-1 text mx-2" href="https://twitter.com/"><i class="fa-brands fa-twitter" style="color: #79d5ec;"></i></a>
+                                <a class="fs-1 text mx-2" href="https://www.youtube.com/"><i class="fa-brands fa-youtube" style="color: #ee3d11;"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="border-top d-flex flex-row align-items-center">
+                        <p class="px-2 my-2">Website Terms</p>
+                        |
+                        <p class="px-2 my-2">Privacy Policy</p>
+                        |
+                        <p class="px-2 my-2">Supplier Code of Conduct</p>
+                        |
+                        <p class="px-2 my-2">Do Not Sell My Information</p>
+                    </div>
+                    <div class="border-top d-flex flex-row align-items-center">
+                        <p class="px-2 my-2">Team:</p>
+                        <p class="px-2 my-2">Nicole Beani</p>
+                        |
+                        <p class="px-2 my-2">Giuseppe Cifarelli</p>
+                        |
+                        <p class="px-2 my-2">Lorenzo Siani</p>
+                        |
+                        <p class="px-2 my-2">Nino Traverso</p>
+                        |
+                        <p class="px-2 my-2">Andreas Ubertini</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-start glass text-light" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Area Admin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    Azioni disponibili
+                </div>
+                <div class="mt-3 d-flex flex-column gap-2 px-2">
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CssClass="btn glass text-light mybtn shadow-sm">Gestisci film esistenti</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click" CssClass="btn glass text-light mybtn shadow-sm">Inserisci un nuovo film</asp:LinkButton>
+                    <a href="#" class="btn text-light glass mybtn shadow-sm">Visualizza utenti abbonati</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
